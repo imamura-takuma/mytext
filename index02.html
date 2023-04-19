@@ -20,18 +20,84 @@
         <div>
           
             <div>
-             
-            
+                <img src="imgs/2023-04-18-01-15-59.png" alt="画像">
+
+                <h1>githubの流れ</h1>
+                <br>
+                
+                <h2> 1githuで新しいRepositoreを作る</h2>
+                <b> ※Repositoreはソースを保管するための場所、共有しやすメリットがある</b>
+                
+                <h3> 2 ディレクトリーを作る</h3>
+                <b> ※コードを保管するフォルダ、ファイルのイメージ</b>
+                
+                <h3> 3 RepositoreのURLをコピーし自分のエディターcloneする</h3>
+                
+                <b> ターミナルのcmdにgit clone url(repositoreした際のurl)</b>
+                <img src="imgs/2023-04-18-01-33-36.png" alt="画像">
+                
+                <img src="imgs/2023-04-18-01-34-28.png" alt="画像">
+                
+                <img src="imgs/2023-04-18-01-47-41.png" alt="画像">
+                
+                <b> ※空のエディターが新しく開く</b>
+                <h3> 4 commitする</h3>
+                <b> ※ローカルのコードをリモートのgithubにpushするイメージ</b>
+                <img src="imgs/2023-04-18-02-06-32.png" alt="画像">
+                <h3> 5 branchを作る</h3>
+                <b> meinのコードを慎重に取り扱うため</b>
+                <pre  class=" language-html"><code class="prism  language-html"> 
+                    gti branch                      //現在のbranchの確認
+                    git branch 新しいbranch名      //新しいbranchの作成
+                    git branch 移動したいbranch名   //branchの移動
+                </code></pre>
+                
+                
+                
+                
+                <img src="imgs\2023-04-18-02-26-59.png" alt="画像">
+                
+                <img src="imgs\2023-04-18-02-45-18.png" alt="画像">
+                <b> branchで変更した内容をgithubに上げる</b>
+
+                <pre  class=" language-html"><code class="prism  language-html"> 
+                    git add * または　git add . 
+                    git commit -m "変更した点などメッセージ" 
+                    git push origin  branch名 
+               </code></pre>
+               
+                <img src="imgs/2023-04-18-03-44-32.png" alt="画像">
+                
+                <h3> github上の操作</h3>
+                <h3> 1.pullrequestでコードのレビューをする</h3>
+                <h3> 2.問題がなっかたらMerge pull request →　Confirm mergenを押しmain branchに動機する</h3>
+                <h3> 3.完了したら不要なブランチは削除する</h3>
+                <b> ※まだリモート上でしかブランチを削除していないためローカル上のbranchを削除する必要がある</b>
+                <h3> 4github上にある変更したmain branchをもってくる（pull）</h3>
+                <img src="imgs/2023-04-18-04-03-35.png" alt="画像">
+                <pre  class=" language-html"><code class="prism  language-html"> 
+                    git branch                  //現在のbranchの確認
+                    git checkout main           //branchの移動
+                    git branch -D text-base     //branchの削除
+                    git pull origin main        //github上にある変更した最新のmain branchをもってくる
+               </code></pre>
+                
             </div>
             
-
+<!-- 
                 <pre  class=" language-html"><code class="prism  language-html"> 
                      //コードを書き込める
                    
                       <h4 id="activity_main.xml">activity_main.xml</h4>
                       <img src="imgs\2023-04-18-01-15-59.png" alt="画像">
+                      <img src="" alt="画像">
                 
                 </code></pre>
+                <pre  class=" language-html"><code class="prism  language-html"> 
+                    
+                  
+                    
+                </code></pre> -->
             <hr>
         </div>
       </div>
