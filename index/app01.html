@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>App01</title>
+      <link rel="stylesheet" href="https://stackedit.io/style.css" />
+      <link rel="stylesheet" href="../style.css">
+      <link rel="stylesheet" href="css/prism.css">
+      <script src="js/prism.js" defer></script>
+    </head>
+
+<body class="stackedit">
+  
+
+  <div class="stackedit__html">
+    <a href="../text-index.html"><img class="left" src="../home.png" width="30" ></a>
+    <h1 id="app01-基本的な画面作成">App01 基本的な画面作成</h1>
+      <h2 id="概要">概要</h2>
+        <p>App01ではAndroidにおける画面の作成方法、ならびにボタンのリスナー処理について学習する。</p>
+      <h2 id="動作確認">動作確認</h2>
+      <video src="mv/App01.mp4" controls width="300"></video>
+      <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">app01 基本的な画面作成 <a href="https://t.co/miYOJm2wYC">pic.twitter.com/miYOJm2wYC</a></p>&mdash; いまむら　たくま (@Imamuuu5) <a href="https://twitter.com/Imamuuu5/status/1649274279450800128?ref_src=twsrc%5Etfw">April 21, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <h2 id="画面">画面</h2>
+      <img src="imgs/app01_first.png" alt="画像" controls width="300" >
+
+      <h2 id="ソースコード">ソースコード</h2>
+      <h3 id="レイアウト">レイアウト</h3>
+        <p>※ 注意<br>「#」は、XMLのコメントではないため、<strong><u>入力しないこと</u></strong>。</p>
+        <h4 id="activity_main.xml">activity_main.xml</h4>
+        <pre class=" language-xml"><code class="prism  language-xml">
+         
+
+            
+
+      </code></pre>
+  <hr>
+        <h3 id="java">Java</h3>
+        <h4 id="mainactivity.java">MainActivity.java</h4>
+        <pre class=" language-java"><code class="prism  language-java">
+                    package com.example.app01;
+
+                    import androidx.appcompat.app.AppCompatActivity;
+
+                    import android.os.Bundle;
+                    import android.view.View;
+                    import android.widget.Button;
+                    import android.widget.TextView;
+
+                    public class MainActivity extends AppCompatActivity {   // アプリ本体であるAppCompatActivityを継承
+
+                        private TextView text1;     // TextViewの変数 text1 を用意
+                        private TextView text2;     // TextViewの変数 text2 を用意
+                        private TextView text3;     // TextViewの変数 text3 を用意
+                        private Button btn1;        // Buttonの変数 btn1 を用意
+                        private Button btn2;        // Buttonの変数 btn2 を用意
+                        private Button btn3;
+                        private Button Reset;
+
+                        @Override   // オーバーライドアノテーション（このメソッドは親からオーバーライドしたものだと表す）
+                        protected void onCreate(Bundle savedInstanceState) {    // アプリが起動したときに呼ばれるメソッド
+                            super.onCreate(savedInstanceState);                 // 親クラス(AppCompatActivity)のonCreate()を実行
+                            setContentView(R.layout.activity_main);             // 画面にactivity_main.xmlのレイアウトを設定
+
+                            text1 = findViewById(R.id.text1);                   // text1というIDのViewを取得しtext1変数に代入
+                            text2 = findViewById(R.id.text2);                   // text2というIDのViewを取得しtext2変数に代入
+                            text3 = findViewById(R.id.text3);
+                            btn1 = findViewById(R.id.btn1);                     // btn1というIDのViewを取得しbtn1変数に代入
+                            btn2 = findViewById(R.id.btn2);                     // btn2というIDのViewを取得しbtn2変数に代入
+                            btn3 = findViewById(R.id.btn3);                     // btn2というIDのViewを取得しbtn2変数に代入
+                            Reset = findViewById(R.id.reset);
+
+                            btn1.setOnClickListener(new View.OnClickListener() {   // btn1にクリックリスナーを設定（定義も同時に行っている）
+                                @Override
+                                public void onClick(View view) {	               // 設定したViewがクリックされたら実行されるメソッド
+                                    text1.setText("私");                           // text1のテキストを変更
+
+                                }
+                            });
+
+                            btn2.setOnClickListener(new View.OnClickListener() {    // btn2にクリックリスナーを設定（定義も同時に行っている）
+                                @Override
+                                public void onClick(View view) {		            // 設定したViewがクリックされたら実行されるメソッド
+                                    text2.setText("好き");                          // text1のテキストを変更
+                                }
+                            });
+                            btn3.setOnClickListener(new View.OnClickListener() {    // btn3にクリックリスナーを設定（定義も同時に行っている）
+                                @Override
+                                public void onClick(View view) {		            // 設定したViewがクリックされたら実行されるメソッド
+                                    text3.setText("バスケットボール");              // text3のテキストを変更
+                                }
+                            });
+                            Reset.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    text1.setText("I");
+                                    text2.setText("like");
+                                    text3.setText("basketball");
+                                }
+                            });
+
+                        }
+                    }
+
+        </code></pre>
+<h2 id="補足説明">補足説明</h2>
+    <p>Android開発では、画面の構成を <strong>「XML」</strong> で記述し、動作や処理を <strong>「Java」</strong> で記述する。</p>
+
+    <p>AndroidStudioを使って開発することによりレイアウトのXMLは <strong>「activity_main.xml」</strong> 、Javaは <strong>「MainActivity.java」</strong> がデフォルトで用意されるため、それに追記する形で開発を行う。</p>
+
+    <p>画面を構成するパーツの事を <strong>「View」</strong> と呼び、今回使用した <strong>「LinearLayout」「TextView」「Button」</strong> は全てViewである。</p>
+    <p>Viewの中でもViewの配置を担当するViewの事を <strong>「ViewGroup」</strong> と呼び、今回の場合LinearLayoutがViewGroupに当たる。<br>
+    勘違いしないで欲しいのは、ViewGroupもViewの一種であり、役割は違うが画面構成のパーツであることに間違いはない。<br>
+    イメージとしては道具を配置する部分的なパネルのようなものだと思って欲しい。</p>
+    <p>アプリのメインクラスとなるのが <strong>「Activity」</strong> と呼ばれるクラスである。<br>
+    これは1枚の画面そのものを表すクラスだと思って欲しい。</p>
+    <p>アプリ制作では基本的にこのActivityというクラスを継承したクラスを作る必要があり、デフォルトでは <strong>「AppCompatActivity」</strong> というクラスを継承している。<br>
+    Compatとは互換性という意味ではあるが、元々は普通の「Activity」というクラスが使われていたようだが、色々機能追加とかされたAppCompatActivityを継承するのがデフォルトとなっているため、実習ではこちらを使用する。</p>
+    <p>Androidにおけるmain()メソッドのような処理が <strong>「onCreate()」</strong> メソッドになるので、Javaではこれをオーバーライドして処理を書いていく。</p>
+    <p>作成したxmlの画面を表示させたい場合は <strong>「setContentView()」</strong> メソッドで作成したlayout.xmlを指定することにより画面は表示される。<br>
+    そこからさらに色々な処理を記述したい場合は、 <strong>「findViewById()」</strong> を使い、レイアウトからオブジェクトとしてViewを取得する必要がある。</p>
+    <p>ちなみに <strong>「R.layout.activity_main」</strong> というものをsetContentView()で指定しているのだが、こういう「R.なんちゃら」という書き方はAndroid開発ではよく出現し、「R」とは「リソース」ということで、AndroidStudio上にある「res」フォルダ内のレイアウトや画像などのリソースを指定できるクラスになっている。<br>
+    例えば「R.layout.activity_main」であれば「R（リソース）」の「layout（レイアウト）」の「activity_main.xml」を表す。</p>
+    <p>これらの「R.layout.activity_main」などの実態は <strong>int型の変数</strong> である。</p>
+    <p>これらの変数名にはファイル名が付けられているが、 <strong>AndroidStudioの機能によって、ファイル名などが解析され、自動でint型の変数（定数）としてプロジェクトごとにクラスファイルが自動生成</strong> される。</p>
+    <p>他にも「R.id.text1」など、レイアウトXMLでViewに指定した <strong>IDもリソースに当たる</strong> ので、こういう指定が可能になる。</p>
+
+</div>
+</body>
+
+</html>
